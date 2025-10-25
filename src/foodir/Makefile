@@ -1,2 +1,2 @@
-SRCS=foo.c
+SRCS=$(wildcard *.c)
 include ../subdir.mk

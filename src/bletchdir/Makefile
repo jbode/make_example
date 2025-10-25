@@ -1,3 +1,3 @@
-SRCS=bletch.c blurga.c
+SRCS=$(wildcard *.c)
 include ../subdir.mk
 
