@@ -32,10 +32,16 @@ SUBDIRS=$(wildcard *dir)
 
 .PHONY: all clean $(SUBDIRS)
 
-all: $(SUBDIRS) $(OBJS)
+all: $(BLDDIR) $(INCDIR) $(SUBDIRS) $(OBJS)
 
 clean: $(SUBDIRS)
 	rm -rf $(OBJS)
+
+$(BLDDIR):
+	mkdir $(BLDDIR)
+
+$(INCDIR):
+	mkdir $(INCDIR)
 
 $(OBJS): $(SRCS)
 	$(CC) -c -o $@ $(CFLAGS) $<

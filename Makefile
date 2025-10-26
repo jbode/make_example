@@ -17,13 +17,16 @@ SUBDIRS=src
 all: $(TARGET)
 
 clean: $(SUBDIRS)
-	rm -rf $(TARGET)
+	rm -rf $(TARGET) package build include
 
 #
 # Target depends on all subdirectories having built successfully
 #
-$(TARGET): $(SUBDIRS)
+$(TARGET): package $(SUBDIRS)
 	$(CC) -o $@ $(CFLAGS) $(wildcard build/*.o)
+
+package: 
+	mkdir package
 
 #
 # Build all subdirectories
